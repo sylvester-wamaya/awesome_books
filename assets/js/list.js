@@ -21,8 +21,6 @@ function addBooks(title, author){
   books.push(book);
 }
 
-addBooks('book4', 'author');
-console.log(books)
 
 
 function removeBook(books) {
@@ -30,5 +28,13 @@ function removeBook(books) {
   return filteredBook;
 }
 
-removeBook(books);
-console.log(books)
+
+const bookList = document.querySelector("#list")
+const bookCard = document.createElement("li")
+books.forEach((book)=>{
+bookCard.innerHTML += `
+<p>${book.title}</p>
+<p>${book.author}</p>`
+})
+
+bookList.appendChild(bookCard)
