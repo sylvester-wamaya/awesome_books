@@ -16,11 +16,36 @@ const books = [
   },
 ];
 
-function addBooks(title, author){
-  const book = { title: title, author: author}
-  books.push(book);
+/* */
+function Books() {
+  constructor(title, author){
+    this.title = title;
+    this.author = author;
+  }
+
+  let books = []
+  const addBook = (title, author) => {
+    let book = new Books({
+      title, 
+      author
+    });
+    return books.push(book);
+  }
 }
 
+
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+
+function addBook(title, author){
+  const book = {
+    title: title, 
+    author: author,
+  }
+  books.push(book);
+}
+addBook()
+console.log(books);
 
 
 function removeBook(books) {
@@ -37,4 +62,8 @@ bookCard.innerHTML += `
 <p>${book.author}</p>`
 })
 
-bookList.appendChild(bookCard)
+bookList.appendChild(bookCard);
+
+
+const addButton = document.getElementById('addBook');
+addButton.addEventListener('submit', addBook);
