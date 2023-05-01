@@ -23,3 +23,12 @@ function addBooks(title, author){
 
 addBooks('book4', 'author');
 console.log(books)
+
+
+function removeBook(books) {
+  const filteredBook = books.filter((book) => book.title !== book);
+  return filteredBook;
+}
+
+removeBook(books);
+console.log(books)
