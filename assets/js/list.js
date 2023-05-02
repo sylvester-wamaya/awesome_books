@@ -1,4 +1,4 @@
-const books = [
+let books = [
   {
     id: 1,
     title: 'title1',
@@ -6,46 +6,60 @@ const books = [
   },
   {
     id: 2,
-    title: 'title1',
+    title: 'title2',
     author: 'Sylvester',
   },
   {
     id: 3,
-    title: 'title1',
+    title: 'title3',
     author: 'Raphael',
   },
 ];
 
 /* */
-function Books() {
-  constructor(title, author){
-    this.title = title;
-    this.author = author;
+
+const titleInput = document.getElementById('title').value;
+const authorInput = document.getElementById('author').value;
+
+/*
+class Book {
+    constructor(title, author){
+      this.title = title;
+      this.author = author;
+    }
+
+    updateBook(updatedTtitle) {
+      this.title = updatedTtitle;
+    }
+
+    removeBook(book) {
+      const filteredBook = books.filter((book) => book.title !== book);
+      return filteredBook;
+    }
+
   }
 
-  let books = []
-  const addBook = (title, author) => {
-    let book = new Books({
-      title, 
-      author
-    });
-    return books.push(book);
-  }
-}
+  const addButton = document.getElementById('addBook');
+  addButton.addEventListener('submit', () => {
+  const newBook = new Book(
+    titleInput.value,
+    authorInput.value, 
+  );
+  books.push(newBook);
+  return books;
+  }); 
+*/
 
 
-const titleInput = document.getElementById('title');
-const authorInput = document.getElementById('author');
-
-function addBook(title, author){
-  const book = {
-    title: title, 
-    author: author,
-  }
+function addBook() {
+  let book = {titleInput, authorInput};
   books.push(book);
+  return books;
 }
-addBook()
-console.log(books);
+
+
+const addButton = document.getElementById('addBook');
+addButton.addEventListener('submit', addBook);
 
 
 function removeBook(books) {
@@ -54,16 +68,24 @@ function removeBook(books) {
 }
 
 
-const bookList = document.querySelector("#list")
-const bookCard = document.createElement("li")
+const bookList = document.querySelector('#list')
+const bookCard = document.createElement('li')
+const removeButton = document.createElement('button')
 books.forEach((book)=>{
 bookCard.innerHTML += `
 <p>${book.title}</p>
-<p>${book.author}</p>`
+<p>${book.author}</p>
+<button>Remove</button>
+<hr>
+<br>`
 })
 
 bookList.appendChild(bookCard);
 
+/*
 
-const addButton = document.getElementById('addBook');
-addButton.addEventListener('submit', addBook);
+
+
+const addButton1 = document.getElementById('addBook1');
+addButton1.addEventListener('submit', addBook1);
+*/
