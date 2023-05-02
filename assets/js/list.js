@@ -1,90 +1,67 @@
-let books = [
-  {
-    id: 1,
-    title: 'title1',
-    author: 'Didy',
-  },
-  {
-    id: 2,
-    title: 'title2',
-    author: 'Sylvester',
-  },
-  {
-    id: 3,
-    title: 'title3',
-    author: 'Raphael',
-  },
-];
+const books = [];
 
-/* */
 
-const titleInput = document.getElementById('title').value;
-const authorInput = document.getElementById('author').value;
+const bookForm = document.querySelector('#addBook');
+const formTitle = document.getElementById('title');
+const formAuthor = document.getElementById('author');
 
-/*
-class Book {
-    constructor(title, author){
-      this.title = title;
-      this.author = author;
-    }
 
-    updateBook(updatedTtitle) {
-      this.title = updatedTtitle;
-    }
-
-    removeBook(book) {
-      const filteredBook = books.filter((book) => book.title !== book);
-      return filteredBook;
-    }
-
-  }
-
-  const addButton = document.getElementById('addBook');
-  addButton.addEventListener('submit', () => {
-  const newBook = new Book(
-    titleInput.value,
-    authorInput.value, 
-  );
-  books.push(newBook);
-  return books;
-  }); 
-*/
-
-function addBook() {
-  let book = {titleInput, authorInput};
-  books.push(book);
-  return books;
+function addBook(title, author) {
+  let book = {
+    title: title,
+    author: author
+  };
+  return book;
 }
 
-
-const addButton = document.getElementById('addBook');
-addButton.addEventListener('submit', addBook);
-
-
 function removeBook(books) {
-  const filteredBook = books.filter((book) => book.title !== book);
-  return filteredBook;
+  
+const filteredBook = books.filter((book) => book.title !== book);
+return filteredBook;
 }
 
 
 const bookList = document.querySelector('#list')
 const bookCard = document.createElement('li')
 const removeButton = document.createElement('button')
-books.forEach((book)=>{
-bookCard.innerHTML += `
-<p>${book.title}</p>
-<p>${book.author}</p>
+
+const data = JSON.parse(localStorage.getItem("bookData"))
+if(data){
+  data.forEach((book)=>{
+    bookCard.innerHTML += `
+    <p>${book.title}</p>
+    <p>${book.author}</p>
+    <button>Remove</button>
+    <hr>
+    <br>`
+    })
+}
+
+bookForm.addEventListener('click', ()=>{
+
+  const bookAdd = addBook(formTitle.value, formAuthor.value);
+  
+ 
+ 
+  const localBook = {
+    title: bookAdd.title,
+    author: bookAdd.author
+  }
+
+  books.push(localBook)
+  
+localStorage.setItem("bookData", JSON.stringify(books))
+
+  bookCard.innerHTML += `
+<p>${formTitle.value}</p>
+<p>${formAuthor.value}</p>
 <button>Remove</button>
 <hr>
 <br>`
-})
+bookList.appendChild(bookCard);
+});
 
 bookList.appendChild(bookCard);
+console.log(books)
+console.log(data)
 
-/*
-
-
-
-const addButton1 = document.getElementById('addBook1');
-addButton1.addEventListener('submit', addBook1);
-*/
