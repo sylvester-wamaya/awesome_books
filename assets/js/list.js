@@ -50,7 +50,6 @@ class Book {
   }); 
 */
 
-
 function addBook() {
   let book = {titleInput, authorInput};
   books.push(book);
