@@ -1,4 +1,4 @@
-const books = [];
+const books = JSON.parse(localStorage.getItem('bookData')) || [];;
 
 
 const bookForm = document.querySelector('#addBook');
