@@ -7,18 +7,18 @@ const formAuthor = document.getElementById('author');
 
 
 function addBook(title, author) {
+  if(title !="" && author !=""){
   let book = {
+    id: getRandomInt(),
     title: title,
     author: author
   };
   return book;
+}}
+function getRandomInt() {
+  return Math.floor(Math.random() * 1000)
 }
 
-function removeBook(books) {
-  
-const filteredBook = books.filter((book) => book.title !== book);
-return filteredBook;
-}
 
 
 const bookList = document.querySelector('#list')
@@ -31,7 +31,7 @@ if(data){
     bookCard.innerHTML += `
     <p>${book.title}</p>
     <p>${book.author}</p>
-    <button>Remove</button>
+    <button class="remove" data-id=${book.id}>Remove</button>
     <hr>
     <br>`
     })
@@ -44,6 +44,7 @@ bookForm.addEventListener('click', ()=>{
  
  
   const localBook = {
+    id: bookAdd.id,
     title: bookAdd.title,
     author: bookAdd.author
   }
@@ -55,13 +56,28 @@ localStorage.setItem("bookData", JSON.stringify(books))
   bookCard.innerHTML += `
 <p>${formTitle.value}</p>
 <p>${formAuthor.value}</p>
-<button>Remove</button>
+<button class="remove" data-id=${addBook.id}>Remove</button>
 <hr>
 <br>`
 bookList.appendChild(bookCard);
+
+formTitle.value = ""
+formAuthor.value = ""
 });
 
 bookList.appendChild(bookCard);
+
+
+function removeBook(bookId) {
+  
+  const filteredBooks = data.filter((book) => book.id !== bookId);
+  localStorage.setItem("bookData", JSON.stringify(filteredBooks))
+ window.location.reload
+  }
+
+Array.from(document.querySelectorAll(".remove")).forEach((btn)=>{
+  btn.addEventListener("click",()=>{removeBook(btn.dataset.id)})
+})
 console.log(books)
 console.log(data)
 
