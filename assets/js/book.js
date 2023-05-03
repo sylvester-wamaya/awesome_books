@@ -19,6 +19,30 @@ class Book {
     localStorage.setItem('bookData', JSON.stringify(books));
   }
 
+  displaylist() {
+    books.forEach((book) => {
+      const bookCard = document.createElement('li');
+      const removeButton = document.createElement('button');
+      const hr = document.createElement('hr');
+  
+      bookCard.innerHTML += `    
+      <p>${book.title}</p>
+      <p>${book.author}</p>  
+         `;
+      bookCard.id = `data-${book.id}`;
+      removeButton.textContent = 'Remove';
+      removeButton.dataset.id = book.id;
+      removeButton.addEventListener('click', (e) => {
+        const { id } = e.target.dataset;
+        this.removeBook(id);
+        const bookEl = document.getElementById(`data-${book.id}`);
+        bookList.removeChild(bookEl);
+        window.location.reload();
+      });
+      bookCard.appendChild(removeButton);
+      bookCard.appendChild(hr);
+      bookList.appendChild(bookCard);
+    });
   
 
 }  
