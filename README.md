@@ -6,7 +6,7 @@
 
 
 
-  <h3><b>MAwesome Books Website</b></h3>
+  <h3><b>Awesome Books Website</b></h3>
 
 </div>
 
