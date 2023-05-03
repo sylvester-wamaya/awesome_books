@@ -23,11 +23,10 @@ function addBook(title, author) {
 
 
 function removeBook(id) {  
-  books = books.filter((book) => book.id !== id);
   let bookData = JSON.parse(localStorage.getItem('bookData'));
   bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
-  localStorage.setItem('bookData', JSON.stringify(bookData));
   books = bookData
+  localStorage.setItem('bookData', JSON.stringify(books));  
  
   }
 
@@ -50,6 +49,7 @@ function displaylist(){
       removeBook(id)
       const bookEl = document.getElementById(`data-${book.id}`)
       bookList.removeChild(bookEl)
+      window.location.reload()
     })
     bookCard.appendChild(removeButton)
     bookCard.appendChild(hr)
@@ -63,13 +63,13 @@ e.preventDefault()
   
 formTitle.value = ""
 formAuthor.value = ""
-location.reload()
+window.location.reload()
 });
 
 
 displaylist()
 
-
+console.log(books)
 
 
 
