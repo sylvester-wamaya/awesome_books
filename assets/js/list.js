@@ -27,6 +27,7 @@ function removeBook(id) {
   let bookData = JSON.parse(localStorage.getItem('bookData'));
   bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
   localStorage.setItem('bookData', JSON.stringify(bookData));
+  books = bookData
  
   }
 
