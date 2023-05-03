@@ -1,84 +1,74 @@
-const books = JSON.parse(localStorage.getItem('bookData')) || [];;
+
+let books = JSON.parse(localStorage.getItem('bookData')) || [];;
 
 
-const bookForm = document.querySelector('#addBook');
+const addButton = document.querySelector('#addBook');
 const formTitle = document.getElementById('title');
 const formAuthor = document.getElementById('author');
+const bookList = document.querySelector('#list')
+
 
 
 function addBook(title, author) {
   if(title !="" && author !=""){
   let book = {
-    id: getRandomInt(),
-    title: title,
-    author: author
+    id: books.length + 1,
+    title,
+    author
   };
-  return book;
+  
+  books.push(book)
+  localStorage.setItem("bookData",JSON.stringify(books))
 }}
-function getRandomInt() {
-  return Math.floor(Math.random() * 1000)
-}
 
 
+function removeBook(id) {  
+  books = books.filter((book) => book.id !== id);
+  let bookData = JSON.parse(localStorage.getItem('bookData'));
+  bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
+  localStorage.setItem('bookData', JSON.stringify(bookData));
+ 
+  }
 
-const bookList = document.querySelector('#list')
-const bookCard = document.createElement('li')
-const removeButton = document.createElement('button')
+function displaylist(){
 
-const data = JSON.parse(localStorage.getItem("bookData"))
-if(data){
-  data.forEach((book)=>{
-    bookCard.innerHTML += `
+  books.forEach((book)=>{
+    const bookCard = document.createElement('li')
+    const removeButton = document.createElement("button")
+    const hr = document.createElement("hr")
+
+    bookCard.innerHTML += `    
     <p>${book.title}</p>
-    <p>${book.author}</p>
-    <button class="remove" data-id=${book.id}>Remove</button>
-    <hr>
-    <br>`
+    <p>${book.author}</p>  
+       `
+    bookCard.id = `data-${book.id}`
+    removeButton.textContent = "Remove"
+    removeButton.dataset.id = book.id
+    removeButton.addEventListener("click", (e)=>{
+      const {id} = e.target.dataset
+      removeBook(id)
+      const bookEl = document.getElementById(`data-${book.id}`)
+      bookList.removeChild(bookEl)
+    })
+    bookCard.appendChild(removeButton)
+    bookCard.appendChild(hr)
+    bookList.appendChild(bookCard)
     })
 }
 
-bookForm.addEventListener('click', ()=>{
-
-  const bookAdd = addBook(formTitle.value, formAuthor.value);
+addButton.addEventListener('click', (e)=>{
+e.preventDefault()
+  addBook(formTitle.value, formAuthor.value);
   
- 
- 
-  const localBook = {
-    id: bookAdd.id,
-    title: bookAdd.title,
-    author: bookAdd.author
-  }
-
-  books.push(localBook)
-  
-localStorage.setItem("bookData", JSON.stringify(books))
-
-  bookCard.innerHTML += `
-<p>${bookAdd.title}</p>
-<p>${bookAdd.author}</p>
-<button class="remove" data-id=${bookAdd.id}>Remove</button>
-<hr>
-<br>`
-bookList.appendChild(bookCard);
-
 formTitle.value = ""
 formAuthor.value = ""
+location.reload()
 });
 
-bookList.appendChild(bookCard);
+
+displaylist()
 
 
-function removeBook(bookId) {  
-  const filteredBooks = data.filter((book) => book.id !== bookId);
-  localStorage.setItem("bookData", JSON.stringify(filteredBooks))
-  
- window.location.reload
-  }
 
-Array.from(document.querySelectorAll(".remove")).forEach((btn)=>{
-  btn.addEventListener("click",()=>{removeBook(btn.dataset.id)})
-})
-console.log(books)
-console.log(data)
 
 
