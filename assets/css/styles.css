@@ -4,21 +4,24 @@
   box-sizing: border-box;
 }
 
-
-#div{
+#div {
   display: flex;
   flex-direction: column;
   gap: 1em;
   width: 25%;
- margin-left: 2em;
+  margin-left: 2em;
 }
-hr, h1{
+
+hr,
+h1 {
   margin: 0.5em 25% 0.5em 0;
 }
-ul{
+
+ul {
   list-style: none;
   margin-left: 2em;
 }
-h1{
+
+h1 {
   margin-left: 1em;
 }
