@@ -12,6 +12,15 @@ class Book {
     this.author = document.getElementById('author');
   }
 
+  removeBook(id) {
+    let bookData = JSON.parse(localStorage.getItem('bookData'));
+    bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
+    books = bookData;
+    localStorage.setItem('bookData', JSON.stringify(books));
+  }
+
+  
+
 }  
   
   
