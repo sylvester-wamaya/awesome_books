@@ -43,8 +43,20 @@ class Book {
       bookCard.appendChild(hr);
       bookList.appendChild(bookCard);
     });
-  
 
-}  
+  } 
+
+  addBook(title, author) {
+    if (title !== '' && author !== '') {
+      const book = {
+        id: books.length + 1,
+        title,
+        author,
+      };
   
-  
+      books.push(book);
+      localStorage.setItem('bookData', JSON.stringify(books));
+    }
+  }
+
+}
