@@ -63,3 +63,16 @@ class Book {
 
 const newBook = new Book();
 newBook.displaylist(); 
+
+// display all books by default
+
+
+
+addButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  newBook.addBook(formTitle.value, formAuthor.value);
+
+  formTitle.value = '';
+  formAuthor.value = '';
+  window.location.reload();
+});
