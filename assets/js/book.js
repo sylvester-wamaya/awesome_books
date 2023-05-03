@@ -5,7 +5,6 @@ const formTitle = document.getElementById('title');
 const formAuthor = document.getElementById('author');
 const bookList = document.querySelector('#list');
 
-
 class Book {
   constructor() {
     this.title = document.getElementById('title');
@@ -17,6 +16,7 @@ class Book {
     bookData = bookData.filter((local) => local.id !== parseInt(id, 10));
     books = bookData;
     localStorage.setItem('bookData', JSON.stringify(books));
+    this.displaylist();
   }
 
   displaylist() {
@@ -24,7 +24,7 @@ class Book {
       const bookCard = document.createElement('li');
       const removeButton = document.createElement('button');
       const hr = document.createElement('hr');
-  
+
       bookCard.innerHTML += `    
       <p>${book.title}</p>
       <p>${book.author}</p>  
@@ -43,8 +43,7 @@ class Book {
       bookCard.appendChild(hr);
       bookList.appendChild(bookCard);
     });
-
-  } 
+  }
 
   addBook(title, author) {
     if (title !== '' && author !== '') {
@@ -53,20 +52,18 @@ class Book {
         title,
         author,
       };
-  
+
       books.push(book);
       localStorage.setItem('bookData', JSON.stringify(books));
+      this.displaylist();
     }
   }
-
 }
 
 const newBook = new Book();
-newBook.displaylist(); 
+newBook.displaylist();
 
 // display all books by default
-
-
 
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
