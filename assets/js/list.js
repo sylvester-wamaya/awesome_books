@@ -54,9 +54,9 @@ bookForm.addEventListener('click', ()=>{
 localStorage.setItem("bookData", JSON.stringify(books))
 
   bookCard.innerHTML += `
-<p>${formTitle.value}</p>
-<p>${formAuthor.value}</p>
-<button class="remove" data-id=${addBook.id}>Remove</button>
+<p>${bookAdd.title}</p>
+<p>${bookAdd.author}</p>
+<button class="remove" data-id=${bookAdd.id}>Remove</button>
 <hr>
 <br>`
 bookList.appendChild(bookCard);
@@ -68,10 +68,10 @@ formAuthor.value = ""
 bookList.appendChild(bookCard);
 
 
-function removeBook(bookId) {
-  
+function removeBook(bookId) {  
   const filteredBooks = data.filter((book) => book.id !== bookId);
   localStorage.setItem("bookData", JSON.stringify(filteredBooks))
+  
  window.location.reload
   }
 
@@ -80,4 +80,5 @@ Array.from(document.querySelectorAll(".remove")).forEach((btn)=>{
 })
 console.log(books)
 console.log(data)
+
 
