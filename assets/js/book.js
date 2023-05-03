@@ -60,3 +60,6 @@ class Book {
   }
 
 }
+
+const newBook = new Book();
+newBook.displaylist(); 
