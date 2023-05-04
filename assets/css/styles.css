@@ -41,8 +41,9 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 2rem;
   margin-top: 2rem;
+  width: 30%;
+
 }
 
 button {
@@ -52,7 +53,9 @@ button {
   height: 1.5rem;
   width: 4rem;
   border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  box-shadow: 4px 4px rgb(0, 0, 0);
+  background-color: #fff;
+  border: solid 1px rgb(0, 0, 0);
  
 }
 
@@ -62,8 +65,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
-  background-color: #f1f1f1;
+  padding: 0.5em;
 }
 
 .book-stack:nth-child(even) {
@@ -72,44 +74,53 @@ button {
 }
 
 .display-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+
   border: 3px solid black;
   width: 55%;
 }
 
 .title-input {
   height: 2rem;
-  width: 26.5rem;
   padding: 5px;
   font-family: 'Lato', sans-serif;
   border: 1px solid #d0d9d4;
   border-radius: 4px;
   font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  border: solid 1px rgb(0, 0, 0);
 }
 
 .author-input {
  height: 2rem;
-  width: 26.5rem;
   padding: 5px;
   font-family: 'Lato', sans-serif;
   border: 1px solid #d0d9d4;
   border-radius: 4px;
   font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  border: solid 1px rgb(0, 0, 0);
 }
 
 .add-button {
-  border: none;
   height: 2rem;
   width: 4.5rem;
   font-family: 'Lato', sans-serif;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
   cursor: pointer;
-  position: relative;
-  left: 1rem;
+  align-self: end;
 }
+hr{
+  width: 15%;
+  margin: auto;
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 4px;
+}
+#inputs{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+
