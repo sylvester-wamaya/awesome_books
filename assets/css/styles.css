@@ -55,7 +55,7 @@ button {
   height: 1.5rem;
   width: 4rem;
   border-radius: 4px;
-  box-shadow: 4px 4px rgb(0, 0, 0);
+  box-shadow: rgba(119, 117, 117, 0.66) 0 1px 4px;
   background-color: #fff;
 }
 
@@ -98,11 +98,19 @@ button {
 }
 
 .add-button {
+  border: none;
   height: 2rem;
   width: 4.5rem;
   font-family: 'Lato', sans-serif;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.66) 0 1px 4px;
   cursor: pointer;
+  position: relative;
   align-self: end;
+}
+
+.add-button:hover, button:hover {
+  background-color: rgb(209, 200, 190);
 }
 
 #inputs {
@@ -156,4 +164,66 @@ button {
   width: 100vw;
   min-height: 10vh;
   margin-top: 0;
+}
+/* Footer section */
+
+.footer-section {
+  border: 1.5px solid black;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 4px;
+  margin: 0 1.9rem;
+  position: fixed;
+  width: 95%;
+  bottom: 0;
+  margin-bottom: 1.5rem;
+}
+
+.footer-text {
+  margin: 0 50px;
+  height: 50px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.footer-text .footer-rights {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.contact-text {
+  margin-bottom: 0;
+}
+
+.contact-text2 {
+  margin-top: 5px;
+  position: relative;
+  right: 10rem;
+}
+
+.contact-details li {
+  padding-bottom: 4px;
+}
+
+.hide {
+  display: none;
 }
