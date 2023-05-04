@@ -22,13 +22,12 @@ class Book {
   displaylist() {
     books.forEach((book) => {
       const bookCard = document.createElement('li');
-      bookCard.classList.add('my-display-flex');
       const removeButton = document.createElement('button');
       removeButton.classList.add('my-button-container');
-      const hr = document.createElement('hr');
+     
 
       bookCard.innerHTML += `    
-      <p class="my-display-flex my-title-container">'${book.title}' by ${book.author}</p>
+      <p class="my-title-container">'${book.title}' by ${book.author}</p>
       `;
       bookCard.id = `data-${book.id}`;
       removeButton.textContent = 'Remove';
@@ -41,7 +40,6 @@ class Book {
         window.location.reload();
       });
       bookCard.appendChild(removeButton);
-      bookCard.appendChild(hr);
       bookList.appendChild(bookCard);
       bookCard.classList.add('book-stack');
     });
