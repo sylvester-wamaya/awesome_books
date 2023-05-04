@@ -1,20 +1,20 @@
 //write a display page function
 // use addEventListeners to the pages links
-let navbarDisplayBooks = document.getElementById('display-div');
+let displayBooks = document.getElementById('display-div');
 let navbarDisplaylink = getElementById('display-list');
-let navbarDisplayAddBook = document.getElementById('display-div');
+let displayAddBook = document.getElementById('display-div');
 let navbarAddlink = getElementById('display-add');
-let navbarDisplayContact = document.getElementById('contact-div');
+let displayContact = document.getElementById('contact-div');
 let navbarContactlink = getElementById('display-contact');
   
-navbarDisplayBooks.addEventListener('click', () => {
-
+navbarDisplaylink.addEventListener('click', () => {
+  displayBooks.classList.remove('hidden');
 })
 
 navbarAddlink.addEventListener('click', () => {
-
+  displayAddBook.classList.remove('hidden');
 })
 
 navbarContactlink.addEventListener('click', () => {
-
+  displayContact.classList.remove('hidden');
 })
