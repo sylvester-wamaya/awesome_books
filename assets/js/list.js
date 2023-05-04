@@ -48,6 +48,7 @@ function displaylist() {
     bookCard.appendChild(removeButton);
     bookCard.appendChild(hr);
     bookList.appendChild(bookCard);
+    bookCard.classList.add('book-stack');
   });
 }
 
