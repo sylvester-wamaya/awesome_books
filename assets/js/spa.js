@@ -1,12 +1,9 @@
 //write a display page function
-// use addEventListeners to the pades ling
-//Create first the navBar
-
-
+// use addEventListeners to the pages links
 let navbarDisplayBooks = document.getElementById('display-div');
-let navbarDisplaylink = getElementById('display-add');
+let navbarDisplaylink = getElementById('display-list');
 let navbarDisplayAddBook = document.getElementById('display-div');
-let navbarAddlink = getElementById('display-list');
+let navbarAddlink = getElementById('display-add');
 let navbarDisplayContact = document.getElementById('contact-div');
 let navbarContactlink = getElementById('display-contact');
   
