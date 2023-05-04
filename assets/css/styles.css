@@ -113,3 +113,47 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+
+/*navbar*/
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: whitesmoke;
+}
+
+.title-navbar {
+  width: 50%;
+  margin: 0 1%;
+  padding: 1%;
+}
+
+.nav-list {
+  width: 50%;
+  display: flex;
+  list-style-type: none;
+  margin: 0 1%;
+  padding: 1%;
+  justify-content: flex-end;
+  background-color: whitesmoke;
+}
+
+.nav-item {
+  margin: 1%;
+}
+
+.contact-info {
+  margin: 1% auto;
+}
+
+.contact-info h1 {
+  text-align: center;
+  margin: 5% auto;
+}
+
+.displayed-section {
+  width: 100vw;
+  min-height: 10vh;
+  margin-top: 0;
+}
