@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
 }
@@ -19,7 +19,6 @@ main {
 .book-container {
   align-items: center;
   margin-right: 12rem;
-  
 }
 
 h1 {
@@ -27,6 +26,10 @@ h1 {
 }
 
 hr {
+  width: 15%;
+  margin: auto;
+  border: solid 2px rgb(0, 0, 0);
+  border-radius: 4px;
   margin-top: 3em;
 }
 
@@ -43,7 +46,6 @@ hr {
   align-items: center;
   margin-top: 2rem;
   width: 30%;
-
 }
 
 button {
@@ -55,8 +57,6 @@ button {
   border-radius: 4px;
   box-shadow: 4px 4px rgb(0, 0, 0);
   background-color: #fff;
-  border: solid 1px rgb(0, 0, 0);
- 
 }
 
 .book-stack {
@@ -70,11 +70,9 @@ button {
 
 .book-stack:nth-child(even) {
   background-color: rgb(225, 225, 225);
-
 }
 
 .display-section {
-
   border: 3px solid black;
   width: 55%;
 }
@@ -83,7 +81,6 @@ button {
   height: 2rem;
   padding: 5px;
   font-family: 'Lato', sans-serif;
-  border: 1px solid #d0d9d4;
   border-radius: 4px;
   font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
@@ -91,10 +88,9 @@ button {
 }
 
 .author-input {
- height: 2rem;
+  height: 2rem;
   padding: 5px;
   font-family: 'Lato', sans-serif;
-  border: 1px solid #d0d9d4;
   border-radius: 4px;
   font-size: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
@@ -108,13 +104,8 @@ button {
   cursor: pointer;
   align-self: end;
 }
-hr{
-  width: 15%;
-  margin: auto;
-  border: solid 2px rgb(0, 0, 0);
-  border-radius: 4px;
-}
-#inputs{
+
+#inputs {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -122,5 +113,3 @@ hr{
   align-items: center;
   justify-content: center;
 }
-
-
