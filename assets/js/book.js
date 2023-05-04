@@ -24,7 +24,6 @@ class Book {
       const bookCard = document.createElement('li');
       const removeButton = document.createElement('button');
       removeButton.classList.add('my-button-container');
-     
 
       bookCard.innerHTML += `    
       <p class="my-title-container">'${book.title}' by ${book.author}</p>
