@@ -73,14 +73,6 @@ addButton.addEventListener('click', (e) => {
   window.location.reload();
 });
 
-
-
-
-
-
-
-
-
 const navList = document.getElementById('display-list');
 const addNav = document.getElementById('display-add');
 const contactNav = document.getElementById('display-contact');
@@ -90,21 +82,20 @@ const listSection = document.querySelector('.book-container');
 const date = document.querySelector('#date');
 
 navList.addEventListener('click', () => {
-  addSection.style.display = "none";
+  addSection.style.display = 'none';
   contactSection.classList.add('hide');
   listSection.classList.remove('hide');
-  
-})
+});
 
 addNav.addEventListener('click', () => {
   listSection.classList.add('hide');
   contactSection.classList.add('hide');
-  addSection.style.display = "flex";
-})
+  addSection.style.display = 'flex';
+});
 
 contactNav.addEventListener('click', () => {
   listSection.classList.add('hide');
   contactSection.classList.remove('hide');
-  addSection.style.display = "none";
-})
-date.innerHTML =`<small>${Date()}</small>`
+  addSection.style.display = 'none';
+});
+date.innerHTML = `<small>${Date()}</small>`;
