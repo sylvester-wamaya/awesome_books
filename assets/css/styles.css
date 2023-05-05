@@ -221,3 +221,9 @@ button:hover {
 .hide {
   display: none;
 }
+
+#dateC{
+  align-self: flex-end;
+  margin: 0 2.5rem;
+  padding: 0.5rem;
+}
